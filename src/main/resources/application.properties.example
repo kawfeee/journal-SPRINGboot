@@ -1,0 +1,9 @@
+spring.application.name=journalApp
+
+# MongoDB Connection
+spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster-url>/?appName=<app-name>
+spring.data.mongodb.database=journaldb2
+spring.data.mongodb.auto-index-creation=true
+
+logging.level.org.mongodb.driver=INFO
+

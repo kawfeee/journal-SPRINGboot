@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Application Properties (contains sensitive credentials) ###
+src/main/resources/application.properties
+target/classes/application.properties
+
