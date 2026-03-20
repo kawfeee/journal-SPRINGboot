@@ -36,3 +36,12 @@ build/
 src/main/resources/application.properties
 target/classes/application.properties
 
+### YAML config files (ignore in resources) ###
+# Ignore YAML files under any resources directory (main/test and nested)
+**/src/**/resources/*.yml
+**/src/**/resources/*.yaml
+**/src/**/resources/**/*.yml
+**/src/**/resources/**/*.yaml
+# Ignore application.yml in build output
+target/classes/application.yml
+target/classes/application.yaml
