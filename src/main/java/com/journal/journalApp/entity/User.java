@@ -2,6 +2,9 @@ package com.journal.journalApp.entity;
 
 import lombok.Data;
 import lombok.NonNull;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -13,6 +16,9 @@ import java.util.List;
 
 @Document(collection = "users")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     private ObjectId id;
