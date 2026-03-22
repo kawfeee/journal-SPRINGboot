@@ -4,6 +4,8 @@ import com.journal.journalApp.entity.User;
 import com.journal.journalApp.repository.JournalEntryRepository;
 
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +22,8 @@ public class JournalEntryService {
     @Autowired
     private UserService userService;
 
+    private static final Logger logger = LoggerFactory.getLogger(JournalEntryService.class);
+
     public void saveEntry(JournalEntry journalEntry, String userName){
         try {
             User user = userService.findByUserName(userName);
@@ -31,8 +35,10 @@ public class JournalEntryService {
             user.getJournalEntries().add(saved);
             userService.saveUser(user);
         } catch (Exception e) {
-            System.out.println("Error in saveEntry: " + e.getMessage());
-            e.printStackTrace();
+//            System.out.println("Error in saveEntry: " + e.getMessage());
+//            e.printStackTrace();
+            logger.info("boohooboohoo");
+
             throw new RuntimeException("Failed to save journal entry: " + e.getMessage(), e);
         }
     }

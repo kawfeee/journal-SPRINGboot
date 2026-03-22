@@ -2,7 +2,10 @@ package com.journal.journalApp.service;
 
 import com.journal.journalApp.entity.User;
 import com.journal.journalApp.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -11,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@Slf4j
 public class UserService {
 
     @Autowired
@@ -19,7 +23,19 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+
     public void saveNewUser(User user){
+        // FOR LOGGING PRACTICE, check for existing username first to avoid driver DuplicateKeyException bubbling up
+        if(userRepository.findByUserName(user.getUserName()) != null){
+            log.error("boohooboohoo");
+//            logger.warn("Attempt to create user with existing userName={}", user.getUserName());
+//            logger.info("boohooboohoo");
+            logger.debug("boohooboohoo");
+//            logger.trace("boohooboohoo");
+            throw new RuntimeException("Username already exists: " + user.getUserName());
+        }
+
         if(user.getRoles() == null || user.getRoles().isEmpty()){
             user.setRoles(List.of("USER"));
         }
@@ -57,4 +73,3 @@ public class UserService {
 }
 
 //controller --> service --> repository
-

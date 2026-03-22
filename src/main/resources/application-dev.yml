@@ -1,6 +1,6 @@
 spring:
-#  application:
-#    name: journalApp
+  application:
+    name: journalApp2
 
   data:
     mongodb:
@@ -8,12 +8,5 @@ spring:
       database: journaldb2
       auto-index-creation: true
 
-#logging:
-#  level:
-#    "org.mongodb.driver": INFO
-
-
 server:
   port: 8080
-  servlet:
-    context-path: /journal
