@@ -2,6 +2,9 @@ spring:
   application:
     name: journalApp2
 
+  config:
+    import: optional:classpath:application-secrets.yml
+
   data:
     mongodb:
       uri: "mongodb+srv://kaifalikhan347_db_user:3g0pYkttGDgRvvYf@cluster0.tq8fihk.mongodb.net/?appName=Cluster0"

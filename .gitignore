@@ -36,7 +36,10 @@ build/
 src/main/resources/application.properties
 target/classes/application.properties
 
-### YAML config files (ignore specific resource YAMLs) ###
-src/main/resources/application.yml
-src/main/resources/application-dev.yml
-src/main/resources/application-prod.yml
+# Secrets file (do not commit)
+src/main/resources/application-secrets.yml
+
+# Keep resource YAML files in repo by default
+# src/main/resources/application.yml
+# src/main/resources/application-dev.yml
+# src/main/resources/application-prod.yml
