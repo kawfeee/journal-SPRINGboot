@@ -38,8 +38,8 @@ target/classes/application.properties
 
 # Secrets file (do not commit)
 src/main/resources/application-secrets.yml
+src/main/resources/application.yml
+src/main/resources/application-dev.yml
+src/main/resources/application-prod.yml
 
-# Keep resource YAML files in repo by default
-# src/main/resources/application.yml
-# src/main/resources/application-dev.yml
-# src/main/resources/application-prod.yml
+

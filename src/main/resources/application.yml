@@ -2,6 +2,20 @@ spring:
   profiles:
     active: dev
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: kaifalikhan347@gmail.com
+    password: ogun ubru hdwf umxu
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+#          ssl:
+#            trust: smtp.gmail.com
+
 logging:
   level:
     root: INFO
@@ -9,3 +23,6 @@ logging:
     com.journal.journalApp: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+
+# Do NOT commit secrets. Use environment variables (MAIL_USERNAME, MAIL_PASSWORD)
+# For Gmail: create an App Password and set it in MAIL_PASSWORD (not your account password).
